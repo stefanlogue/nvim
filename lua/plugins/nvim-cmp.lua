@@ -4,6 +4,7 @@ return {
     version = false, -- last release is way too old
     event = "InsertEnter",
     dependencies = {
+      "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -42,6 +43,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = "emoji" },
         }),
         formatting = {
           format = function(_, item)
