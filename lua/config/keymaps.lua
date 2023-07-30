@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+local wk = require("which-key")
 local Util = require("lazyvim.util")
 
 local function map(mode, lhs, rhs, opts)
@@ -18,13 +18,36 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<C-s>", ":w<cr>")
-map("n", "<C-q>", ":q<cr>")
+map("n", "<C-s>", ":w<cr>", { desc = "Save" })
+map("n", "<C-q>", ":q<cr>", { desc = "Quit" })
+
+-- tmux
+wk.register({
+  t = {
+    name = "tmux",
+    s = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", "sessionizer" },
+  },
+}, {
+  prefix = "<leader>",
+})
+
+-- Neotree
 map("n", "<S-e>", ":Neotree toggle<cr>")
-map("n", "<leader>re", ":Refactor extract<cr>")
-map("n", "<leader>rf", ":Refator extract_to_file<cr>")
+-- Refactoring
+wk.register({
+  r = {
+    name = "refactoring",
+    e = { ":Refactoring extract<cr>", "extract" },
+    f = { ":Refactoring extract_to_file", "extract to file" },
+  },
+}, {
+  prefix = "<leader>",
+  mode = { "v", "n" },
+})
 map("n", "<leader>rr", ":lua require'telescope'.extensions.refactoring.refactors()<CR>")
 map("v", "<leader>re", ":Refactor extract<cr>")
 map("v", "<leader>rf", ":Refator extract_to_file<cr>")
 map("v", "<leader>rr", ":lua require'telescope'.extensions.refactoring.refactors()<CR>")
-map("n", "<leader><leader>x", ":w | source %<CR>")
+
+-- Dev
+map("n", "<leader><leader>x", ":w | source %<CR>", { desc = "Write and source" })

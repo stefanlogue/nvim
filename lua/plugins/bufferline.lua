@@ -8,6 +8,7 @@ return {
       { "<leader>bb", "<Cmd>BufferLineCyclePrev<CR>", desc = "Previous Buffer" },
       { "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", desc = "Next Buffer" },
       { "<leader>c", "<Cmd>BufferLineClose<CR>", desc = "Close buffer" },
+      { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Clsoe left" },
     },
     opts = {
       options = {
