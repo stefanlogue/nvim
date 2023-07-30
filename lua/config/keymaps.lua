@@ -27,3 +27,4 @@ map("n", "<leader>rr", ":lua require'telescope'.extensions.refactoring.refactors
 map("v", "<leader>re", ":Refactor extract<cr>")
 map("v", "<leader>rf", ":Refator extract_to_file<cr>")
 map("v", "<leader>rr", ":lua require'telescope'.extensions.refactoring.refactors()<CR>")
+map("n", "<leader><leader>x", ":w | source %<CR>")
