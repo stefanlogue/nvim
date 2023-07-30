@@ -8,6 +8,7 @@ vim.g.gitblame_display_virtual_text = 0
 vim.opt.termguicolors = true
 
 require("telescope").load_extension("refactoring")
+require("telescope").load_extension("fzf")
 
 vim.diagnostic.config({
   virtual_lines = {
