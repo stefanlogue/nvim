@@ -30,8 +30,13 @@ return {
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { "branch" },
+          lualine_b = {
+            { "branch" },
+            { "diff", symbols = { added = icons.added, modified = icons.modified, removed = icons.removed } },
+          },
           lualine_c = {
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
           },
           lualine_x = { clients_lsp },
