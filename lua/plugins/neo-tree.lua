@@ -18,6 +18,7 @@ return {
         window = {
           width = 30,
           mappings = {
+            ["<space>"] = "none",
             ["l"] = "open",
             ["a"] = {
               "add",
